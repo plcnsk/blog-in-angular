@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 600px;
+  border-radius: 0.2rem;
+  border: 1px dotted #333333;
+  padding: 1rem;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.validation {
+  position: relative;
+}
+
+.submit-button {
+  margin-top: 0.5rem;
+}

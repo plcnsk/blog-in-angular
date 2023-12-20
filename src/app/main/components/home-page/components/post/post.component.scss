@@ -1,0 +1,15 @@
+.card {
+  border: 1px dotted #333333;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+small {
+  display: block;
+  padding-bottom: 0.2rem;
+}

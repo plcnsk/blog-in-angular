@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.navigation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #dc3545;
+}
+
+.navigation-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  color: #f4f4f4;
+}
+
+.active {
+  opacity: 0.6;
+}

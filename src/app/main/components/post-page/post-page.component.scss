@@ -1,0 +1,21 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .post-info {
+    margin-bottom: 0.5rem;
+
+    strong {
+      padding-right: 1rem;
+    }
+  }
+}

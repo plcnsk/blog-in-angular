@@ -1,0 +1,41 @@
+:host {
+  display: inline-block;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  background: #333333;
+  color: #fff;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: #33333332;
+    color: #111;
+  }
+
+  &:hover:not(&:disabled) {
+    opacity: 0.8;
+  }
+}
+
+.primary {
+  background-color: #dc3545;
+}
+
+.secondary {
+
+}
+
+.tertiary {
+
+}
+
+.danger {
+
+}
