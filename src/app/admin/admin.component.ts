@@ -1,19 +1,16 @@
-import {Component} from "@angular/core";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
   templateUrl: 'admin.component.html',
-  styleUrls: ['admin.component.scss']
+  styleUrls: ['admin.component.scss'],
 })
 export class AdminComponent {
-
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) {}
 
   logout(event: Event) {
-    event.preventDefault()
-    this.router.navigate(['login'])
+    event.preventDefault();
+    this.router.navigate(['login']);
   }
 }
