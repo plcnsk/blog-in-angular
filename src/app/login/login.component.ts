@@ -8,6 +8,7 @@ import { Credentials } from './interface/login.interface';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthorisationService } from './services/authorisation/authorisation.service';
 import { filter, finalize, take } from 'rxjs';
+import { CustomValidators } from '../shared/validators/validators';
 
 @Component({
   selector: 'app-login',
@@ -79,10 +80,14 @@ export class LoginComponent implements OnInit {
 
   private initForm(): void {
     this.form = new FormGroup({
-      [LoginKey.Email]: new FormControl(null, [Validators.required, Validators.email]),
+      [LoginKey.Email]: new FormControl(null, [
+        Validators.required,
+        CustomValidators.email(),
+      ]),
       [LoginKey.Password]: new FormControl(null, [
         Validators.required,
         Validators.minLength(this.passwordMinLength),
+        CustomValidators.password(),
       ]),
     });
   }

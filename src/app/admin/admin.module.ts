@@ -9,12 +9,19 @@ import { CreatePageComponent } from './components/create-page/create-page.compon
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { AuthorisationService } from '../login/services/authorisation/authorisation.service';
 import { AuthorisationGuard } from '../login/services/authorisation/guards/authorisation.guard';
+import { LabelModule } from '../shared/components/label/label.module';
+import { ErrorMessageComponent } from '../shared/components/error-mesage/error-message.component';
+import { ErrorMessageModule } from '../shared/components/error-mesage/error-message.module';
+import { ButtonModule } from '../shared/components/button/button.module';
 
 @NgModule({
+  declarations: [CreatePageComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    LabelModule,
+    ErrorMessageModule,
     RouterModule.forChild([
       {
         path: '',
@@ -39,6 +46,7 @@ import { AuthorisationGuard } from '../login/services/authorisation/guards/autho
         ],
       },
     ]),
+    ButtonModule,
   ],
   exports: [RouterModule],
   providers: [AuthorisationService, AuthorisationGuard],

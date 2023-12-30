@@ -1,5 +1,8 @@
+@import "src/assets/variables";
+
 :host {
   display: block;
+  height: calc(100% - $header-height);
 }
 
 .navigation-bar {

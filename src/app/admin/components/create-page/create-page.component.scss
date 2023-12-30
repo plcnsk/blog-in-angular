@@ -1,0 +1,51 @@
+@import "src/assets/variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 800px;
+  border-radius: 0.2rem;
+  border: 1px dotted #333333;
+  padding: 1rem;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.alert-danger {
+  background-color: map-get($colorful-palette, red);
+  color: map-get($colorful-palette, white)
+}
+
+.alert-info {
+  background-color: map-get($colorful-palette, white);
+  color: map-get($colorful-palette, grey);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  min-height: 3rem;
+}
+
+.validation {
+  position: relative;
+}
+
+.submit-button {
+  margin-top: 0.5rem;
+}

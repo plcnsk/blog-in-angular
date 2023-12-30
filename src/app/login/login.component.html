@@ -10,7 +10,7 @@
   </div>
 
   <div class="form-control" [ngClass]="{ invalid: isControlValid(loginKey.Email) }">
-    <app-label for="email"> Email:</app-label>
+    <app-label for="email">Email:</app-label>
     <input type="email" id="email" [formControlName]="loginKey.Email" />
 
     <div class="validation" *ngIf="isControlValid(loginKey.Email)">
@@ -33,6 +33,10 @@
         {{ errorMessages[validatorKey.Required] }}
       </app-error-message>
 
+      <app-error-message *ngIf="isErrorExist(loginKey.Password, validatorKey.Password)">
+        {{ errorMessages[validatorKey.Password] }}
+      </app-error-message>
+
       <app-error-message *ngIf="isErrorExist(loginKey.Password, validatorKey.MinLength)">
         {{
           errorMessages[validatorKey.MinLength].replace(
@@ -50,6 +54,7 @@
     variant="primary"
     [disabled]="form.invalid || isLoading"
     (click)="onSubmit()"
+    (keydown.enter)="onSubmit()"
   >
     Log In
   </app-button>
