@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VALIDATION_MESSAGES } from '../../../shared/constants/form.constant';
-import { ValidatorKey } from '../../../shared/enums/validators.enum';
-import { LoginKey } from '../../../login/enums/login.enum';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CreatePageKey } from './enums/create-page.enum';
 import { Post } from './interfaces/create-page.interface';
+import { ValidatorKey } from '../../../shared/enums/validators.enum';
 
 @Component({
   selector: 'app-create-page',
