@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="form">
+<form class="form" [formGroup]="form!" (keydown.enter)="onSubmit()">
   <h2>Log In Panel of Administrator</h2>
 
   <div class="alert alert-danger" *ngIf="authorisation.error$ | async as error">
@@ -9,52 +9,30 @@
     {{ message }}
   </div>
 
-  <div class="form-control" [ngClass]="{ invalid: isControlValid(loginKey.Email) }">
+  <div class="form-control" [ngClass]="{ invalid: isInValid(loginKey.Email) }">
     <app-label for="email">Email:</app-label>
     <input type="email" id="email" [formControlName]="loginKey.Email" />
 
-    <div class="validation" *ngIf="isControlValid(loginKey.Email)">
-      <app-error-message *ngIf="isErrorExist(loginKey.Email, validatorKey.Required)">
-        {{ errorMessages[validatorKey.Required] }}
-      </app-error-message>
-
-      <app-error-message *ngIf="isErrorExist(loginKey.Email, validatorKey.Email)">
-        {{ errorMessages[validatorKey.Email] }}
-      </app-error-message>
-    </div>
+    <app-error-message *ngIf="isInValid(loginKey.Email)">
+      {{ errorMessage(loginKey.Email) }}
+    </app-error-message>
   </div>
 
-  <div class="form-control" [ngClass]="{ invalid: isControlValid(loginKey.Password) }">
+  <div class="form-control" [ngClass]="{ invalid: isInValid(loginKey.Password) }">
     <app-label for="password"> Password:</app-label>
     <input type="password" id="password" [formControlName]="loginKey.Password" />
 
-    <div class="validation" *ngIf="isControlValid(loginKey.Password)">
-      <app-error-message *ngIf="isErrorExist(loginKey.Password, validatorKey.Required)">
-        {{ errorMessages[validatorKey.Required] }}
-      </app-error-message>
-
-      <app-error-message *ngIf="isErrorExist(loginKey.Password, validatorKey.Password)">
-        {{ errorMessages[validatorKey.Password] }}
-      </app-error-message>
-
-      <app-error-message *ngIf="isErrorExist(loginKey.Password, validatorKey.MinLength)">
-        {{
-          errorMessages[validatorKey.MinLength].replace(
-            '{minlength}',
-            passwordMinLength.toString()
-          )
-        }}
-      </app-error-message>
-    </div>
+    <app-error-message *ngIf="isInValid(loginKey.Password)">
+      {{ errorMessage(loginKey.Password) }}
+    </app-error-message>
   </div>
 
   <app-button
     class="submit-button"
     type="button"
     variant="primary"
-    [disabled]="form.invalid || isLoading"
+    [disabled]="form!.invalid || isLoading"
     (click)="onSubmit()"
-    (keydown.enter)="onSubmit()"
   >
     Log In
   </app-button>

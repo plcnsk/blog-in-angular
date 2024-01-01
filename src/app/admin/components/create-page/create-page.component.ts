@@ -41,11 +41,11 @@ export class CreatePageComponent implements OnInit {
     return control.touched && control.invalid;
   }
 
-  isErrorExist(controlKey: CreatePageKey, validatorKey: ValidatorKey) {
+  isErrorExist(controlKey: CreatePageKey, validatorKey: ValidatorKey): void {
     return this.form.controls[controlKey].errors?.[validatorKey];
   }
 
-  private initForm() {
+  private initForm(): void {
     this.form = new FormGroup({
       [CreatePageKey.Title]: new FormControl(null, [Validators.required]),
       [CreatePageKey.Text]: new FormControl(null, [Validators.required]),
