@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorMessageModule } from './shared/components/error-mesage/error-message.module';
 import { FormsModule } from '@angular/forms';
 import { LabelModule } from './shared/components/label/label.module';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LabelModule } from './shared/components/label/label.module';
     ErrorMessageModule,
     FormsModule,
     LabelModule,
+    QuillModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })

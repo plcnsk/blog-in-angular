@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CreatePageKey } from './enums/create-page.enum';
 import { Post } from './interfaces/create-page.interface';
 import { ValidatorKey } from '../../../shared/enums/validators.enum';
+import { MODULES } from './constans/create-page.constant';
 
 @Component({
   selector: 'app-create-page',
@@ -14,6 +15,7 @@ export class CreatePageComponent implements OnInit {
   readonly errorMessages = VALIDATION_MESSAGES;
   readonly validatorKey = ValidatorKey;
   readonly createPageKey = CreatePageKey;
+  readonly modules = MODULES;
 
   form!: FormGroup;
   isLoading = false;
@@ -40,7 +42,7 @@ export class CreatePageComponent implements OnInit {
     return control.touched && control.invalid;
   }
 
-  isErrorExist(controlKey: CreatePageKey, validatorKey: ValidatorKey): void {
+  isErrorExist(controlKey: CreatePageKey, validatorKey: ValidatorKey) {
     return this.form.controls[controlKey].errors?.[validatorKey];
   }
 

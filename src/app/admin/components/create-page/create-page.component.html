@@ -14,6 +14,7 @@
 
   <div class="form-control">
     <app-label>Content:</app-label>
+    <quill-editor [modules]="modules"></quill-editor>
   </div>
 
   <div class="form-control" [ngClass]="{ invalid: isControlValid(createPageKey.Author) }">

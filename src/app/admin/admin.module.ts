@@ -10,9 +10,9 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { AuthorisationService } from '../login/services/authorisation/authorisation.service';
 import { AuthorisationGuard } from '../login/services/authorisation/guards/authorisation.guard';
 import { LabelModule } from '../shared/components/label/label.module';
-import { ErrorMessageComponent } from '../shared/components/error-mesage/error-message.component';
 import { ErrorMessageModule } from '../shared/components/error-mesage/error-message.module';
 import { ButtonModule } from '../shared/components/button/button.module';
+import { QuillEditorComponent } from 'ngx-quill';
 
 @NgModule({
   declarations: [CreatePageComponent],
@@ -47,6 +47,7 @@ import { ButtonModule } from '../shared/components/button/button.module';
       },
     ]),
     ButtonModule,
+    QuillEditorComponent,
   ],
   exports: [RouterModule],
   providers: [AuthorisationService, AuthorisationGuard],
