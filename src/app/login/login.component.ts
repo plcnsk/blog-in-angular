@@ -21,7 +21,6 @@ export class LoginComponent extends FormExtension<LoginKey> implements OnInit {
   message = '';
 
   readonly loginKey = LoginKey;
-  readonly passwordMinLength = PASSWORD_MIN_LENGTH;
 
   constructor(
     public authorisation: AuthorisationService,
@@ -60,14 +59,13 @@ export class LoginComponent extends FormExtension<LoginKey> implements OnInit {
   }
 
   private subscribeToQueryParams(): void {
-    this.route.queryParams
-      .pipe(
-        take(1),
-        filter((params: Params) => params['loginAgain']),
-      )
-      .subscribe(() => {
+    this.route.queryParams.pipe(take(1)).subscribe(params => {
+      if (params['loginAgain']) {
+        this.message = 'Please login!';
+      } else if (params['authFailed']) {
         this.message = 'Yours session has been expired, please login again';
-      });
+      }
+    });
   }
 
   private initForm(): void {
@@ -78,7 +76,7 @@ export class LoginComponent extends FormExtension<LoginKey> implements OnInit {
       ]),
       [LoginKey.Password]: new FormControl(null, [
         Validators.required,
-        Validators.minLength(this.passwordMinLength),
+        Validators.minLength(PASSWORD_MIN_LENGTH),
         CustomValidators.password(),
       ]),
     });
@@ -94,7 +92,7 @@ export class LoginComponent extends FormExtension<LoginKey> implements OnInit {
         [ValidatorKey.Required]: VALIDATION_MESSAGES[ValidatorKey.Required],
         [ValidatorKey.MinLength]: VALIDATION_MESSAGES[ValidatorKey.MinLength].replace(
           /{minlength}/,
-          String(this.passwordMinLength),
+          String(PASSWORD_MIN_LENGTH),
         ),
         [ValidatorKey.Password]: VALIDATION_MESSAGES[ValidatorKey.Password],
       },

@@ -1,23 +1,28 @@
-<form class="form" [formGroup]="form">
-  <h1>Creating a new post</h1>
+<form class="form" [formGroup]="form!" (keydown.enter)="onSubmit()">
+  <h1 class="form-title">Creating a new post</h1>
 
-  <div class="form-control" [ngClass]="{ invalid: isControlValid(createPageKey.Title) }">
+  <div class="form-control" [ngClass]="{ invalid: isInValid(createPageKey.Title) }">
     <app-label for="title">Name of post:</app-label>
     <input class="input" type="text" id="title" [formControlName]="createPageKey.Title" />
 
-    <div class="validation" *ngIf="isControlValid(createPageKey.Title)">
-      <app-error-message *ngIf="isErrorExist(createPageKey.Title, validatorKey.Required)">
-        {{ errorMessages[validatorKey.Required] }}
-      </app-error-message>
-    </div>
+    <app-error-message *ngIf="isInValid(createPageKey.Title)">
+      {{ errorMessage(createPageKey.Title) }}
+    </app-error-message>
   </div>
 
   <div class="form-control">
     <app-label>Content:</app-label>
-    <quill-editor [modules]="modules"></quill-editor>
+    <quill-editor
+      [modules]="modules"
+      [formControlName]="createPageKey.Text"
+    ></quill-editor>
+
+    <app-error-message *ngIf="isInValid(createPageKey.Text)">
+      {{ errorMessage(createPageKey.Text) }}
+    </app-error-message>
   </div>
 
-  <div class="form-control" [ngClass]="{ invalid: isControlValid(createPageKey.Author) }">
+  <div class="form-control" [ngClass]="{ invalid: isInValid(createPageKey.Author) }">
     <app-label for="author">Author of post:</app-label>
     <input
       class="input"
@@ -26,20 +31,16 @@
       [formControlName]="createPageKey.Author"
     />
 
-    <div class="validation" *ngIf="isControlValid(createPageKey.Author)">
-      <app-error-message
-        *ngIf="isErrorExist(createPageKey.Author, validatorKey.Required)"
-      >
-        {{ errorMessages[validatorKey.Required] }}
-      </app-error-message>
-    </div>
+    <app-error-message *ngIf="isInValid(createPageKey.Author)">
+      {{ errorMessage(createPageKey.Author) }}
+    </app-error-message>
   </div>
 
   <app-button
     class="submit-button"
     type="button"
     variant="primary"
-    [disabled]="form.invalid || isLoading"
+    [disabled]="form!.invalid || isLoading"
     (click)="onSubmit()"
   >
     Create a post

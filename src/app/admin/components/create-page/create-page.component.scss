@@ -10,11 +10,16 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 800px;
   border-radius: 0.2rem;
   border: 1px dotted #333333;
   padding: 1rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .alert {
@@ -39,7 +44,8 @@
 }
 
 .input {
-  min-height: 3rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c9c9;
 }
 
 .validation {

@@ -10,11 +10,12 @@ import { MainModule } from './main/main.module';
 import { PostComponent } from './main/components/home-page/components/post/post.component';
 import { PostPageComponent } from './main/components/post-page/post-page.component';
 import { ButtonModule } from './shared/components/button/button.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorMessageModule } from './shared/components/error-mesage/error-message.module';
 import { FormsModule } from '@angular/forms';
 import { LabelModule } from './shared/components/label/label.module';
 import { QuillModule } from 'ngx-quill';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,13 @@ import { QuillModule } from 'ngx-quill';
     FormsModule,
     LabelModule,
     QuillModule.forRoot(),
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,8 @@
 import { Environment } from './interface';
+import { firebaseConfig } from './firebase.config';
 
 export const environment: Environment = {
   production: true,
-  apiKey: 'AIzaSyBDNqpo0k7w__u3EENHh6bjscMa4gcnR_g',
+  apiKey: firebaseConfig.apiKey,
+  fbDbUrl: firebaseConfig.apiUrl,
 };

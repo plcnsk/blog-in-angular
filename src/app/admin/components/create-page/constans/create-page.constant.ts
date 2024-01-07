@@ -21,3 +21,7 @@ export const MODULES = {
     ['link', 'image', 'video'], // link and image, video
   ],
 };
+
+export const TITLE_MIN_LENGTH = 10;
+export const TEXT_MIN_LENGTH = 20;
+export const AUTHOR_MIN_LENGTH = 10;
