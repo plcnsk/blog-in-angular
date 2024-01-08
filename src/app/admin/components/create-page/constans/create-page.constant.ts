@@ -22,6 +22,6 @@ export const MODULES = {
   ],
 };
 
-export const TITLE_MIN_LENGTH = 10;
+export const TITLE_MIN_LENGTH = 5;
 export const TEXT_MIN_LENGTH = 20;
-export const AUTHOR_MIN_LENGTH = 10;
+export const AUTHOR_MIN_LENGTH = 5;

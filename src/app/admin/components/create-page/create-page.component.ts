@@ -12,6 +12,7 @@ import {
 } from './constans/create-page.constant';
 import { FormExtension } from '../../../shared/utils/form-extension.util';
 import { PostsService } from '../../../shared/services/posts.service';
+import { AlertServices } from '../alert/services/alert.services';
 
 @Component({
   selector: 'app-create-page',
@@ -24,7 +25,10 @@ export class CreatePageComponent extends FormExtension<CreatePageKey> implements
 
   isLoading = false;
 
-  constructor(private postsService: PostsService) {
+  constructor(
+    private postsService: PostsService,
+    private alert: AlertServices,
+  ) {
     super();
   }
 
@@ -47,6 +51,7 @@ export class CreatePageComponent extends FormExtension<CreatePageKey> implements
 
     this.postsService.create$(post).subscribe(() => {
       this.form?.reset();
+      this.alert.success('post has been created');
     });
   }
 

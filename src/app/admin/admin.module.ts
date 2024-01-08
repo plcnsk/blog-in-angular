@@ -13,9 +13,11 @@ import { ErrorMessageModule } from '../shared/components/error-mesage/error-mess
 import { ButtonModule } from '../shared/components/button/button.module';
 import { QuillEditorComponent } from 'ngx-quill';
 import { SearchPipe } from './components/dashboard-page/pipes/search.pipe';
+import { AlertComponent } from './components/alert/alert.component';
+import { AlertServices } from './components/alert/services/alert.services';
 
 @NgModule({
-  declarations: [CreatePageComponent, SearchPipe],
+  declarations: [CreatePageComponent, SearchPipe, EditPageComponent, AlertComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -49,7 +51,7 @@ import { SearchPipe } from './components/dashboard-page/pipes/search.pipe';
     ButtonModule,
     QuillEditorComponent,
   ],
-  exports: [RouterModule, SearchPipe],
-  providers: [AuthorisationService, AuthorisationGuard],
+  exports: [RouterModule, SearchPipe, AlertComponent],
+  providers: [AuthorisationService, AuthorisationGuard, AlertServices],
 })
 export class AdminModule {}

@@ -3,21 +3,17 @@
     <input class="input" type="text" placeholder="Find post..." [(ngModel)]="search" />
   </div>
 
-  <table class="table">
-    <tbody>
-      <tr *ngFor="let post of posts | searchPosts: search">
-        <td>{{ post.author }}</td>
-        <td>{{ post.title }}</td>
-        <td>{{ post.date | date: 'dd/MM/yyyy' }}</td>
-        <td>
-          <app-button class="button" [routerLink]="['/admin', 'post', post.id, 'edit']"
-            >Open
-          </app-button>
-          <app-button variant="danger" (click)="remove(post.id)"> &#10006; </app-button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <ul class="posts-list" *ngFor="let post of posts | searchPosts: search">
+    <li>{{ post.author }}</li>
+    <li>{{ post.title }}</li>
+    <li>{{ post.date | date: 'dd/MM/yyyy' }}</li>
+    <li>
+      <app-button class="button" [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >Open
+      </app-button>
+      <app-button variant="danger" (click)="remove(post.id)"> &#10006; </app-button>
+    </li>
+  </ul>
 </ng-container>
 
 <ng-template #loading>

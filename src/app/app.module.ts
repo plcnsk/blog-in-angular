@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardPageComponent } from './admin/components/dashboard-page/dashboard-page.component';
-import { EditPageComponent } from './admin/components/edit-page/edit-page.component';
 import { HomePageComponent } from './main/components/home-page/home-page.component';
 import { MainModule } from './main/main.module';
 import { PostComponent } from './main/components/home-page/components/post/post.component';
@@ -25,7 +24,6 @@ import { AdminModule } from './admin/admin.module';
     PostPageComponent,
     AdminComponent,
     DashboardPageComponent,
-    EditPageComponent,
     PostComponent,
   ],
   imports: [

@@ -1,1 +1,50 @@
-<p>edit-page</p>
+<ng-container *ngIf="form; else loading">
+  <form class="form" [formGroup]="form">
+    <div class="form-control" [ngClass]="{ invalid: isInValid(editPageKey.Title) }">
+      <app-label for="title">Name of post:</app-label>
+      <input class="input" type="text" id="title" [formControlName]="editPageKey.Title" />
+
+      <app-error-message *ngIf="isInValid(editPageKey.Title)">
+        {{ errorMessage(editPageKey.Title) }}
+      </app-error-message>
+    </div>
+
+    <div class="form-control">
+      <app-label>Content:</app-label>
+      <quill-editor
+        [modules]="modules"
+        [formControlName]="editPageKey.Text"
+      ></quill-editor>
+
+      <app-error-message *ngIf="isInValid(editPageKey.Text)">
+        {{ errorMessage(editPageKey.Text) }}
+      </app-error-message>
+    </div>
+
+    <div class="form-control" [ngClass]="{ invalid: isInValid(editPageKey.Author) }">
+      <app-label for="author">Author of post:</app-label>
+      <input
+        class="input"
+        type="text"
+        id="author"
+        [formControlName]="editPageKey.Author"
+      />
+
+      <app-error-message *ngIf="isInValid(editPageKey.Author)">
+        {{ errorMessage(editPageKey.Author) }}
+      </app-error-message>
+    </div>
+
+    <app-button
+      type="submit"
+      variant="primary"
+      [disabled]="form.invalid || isSubmitted"
+      (click)="onSubmit()"
+      >Update
+    </app-button>
+  </form>
+</ng-container>
+
+<ng-template #loading>
+  <p class="loading">Loading...</p>
+</ng-template>

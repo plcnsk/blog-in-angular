@@ -1,0 +1,42 @@
+@import "src/assets/variables";
+
+:host {
+  display: flex;
+  margin: 2rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.alert-danger {
+  background-color: map-get($colorful-palette, red);
+  color: map-get($colorful-palette, white)
+}
+
+.alert-info {
+  background-color: map-get($colorful-palette, white);
+  color: map-get($colorful-palette, grey);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid #c9c9c9;
+}
+
+.validation {
+  position: relative;
+}
