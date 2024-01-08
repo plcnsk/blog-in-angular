@@ -1,9 +1,12 @@
 import { CreatePageKey } from '../enums/create-page.enum';
 
-export interface Post {
+export interface PostPayLoad {
   [CreatePageKey.Title]: string;
   [CreatePageKey.Text]: string;
   [CreatePageKey.Author]: string;
   date: Date;
-  id?: string;
+}
+
+export interface Post extends PostPayLoad {
+  id: string;
 }

@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { LabelModule } from './shared/components/label/label.module';
 import { QuillModule } from 'ngx-quill';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     FormsModule,
     LabelModule,
     QuillModule.forRoot(),
+    AdminModule,
   ],
   providers: [
     {

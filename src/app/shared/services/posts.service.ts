@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Post } from '../../admin/components/create-page/interfaces/create-page.interface';
+import {
+  Post,
+  PostPayLoad,
+} from '../../admin/components/create-page/interfaces/create-page.interface';
 import { environment } from '../../../environments/environment';
 import { FbCreateResponse } from '../interfaces/interface';
 
@@ -9,16 +12,31 @@ import { FbCreateResponse } from '../interfaces/interface';
 export class PostsService {
   constructor(private http: HttpClient) {}
 
-  create(post: Post): Observable<Post> {
+  create$(payload: PostPayLoad): Observable<Post> {
     return this.http
-      .post<FbCreateResponse>(`${environment.fbDbUrl}/posts.json`, post)
+      .post<FbCreateResponse>(`${environment.fbDbUrl}/posts.json`, payload)
       .pipe(
         map(({ name: id }: FbCreateResponse) => {
           return {
-            ...post,
+            ...payload,
             id,
           };
         }),
       );
+  }
+
+  getAllPosts$(): Observable<Post[]> {
+    return this.http.get(`${environment.fbDbUrl}/posts.json`).pipe(
+      map((response: { [key: string]: any }) => {
+        return Object.keys(response).map(id => ({
+          ...response[id],
+          id,
+        }));
+      }),
+    );
+  }
+
+  removePost$(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.fbDbUrl}/posts/${id}.json`);
   }
 }

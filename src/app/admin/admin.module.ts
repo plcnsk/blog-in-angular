@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AdminComponent } from './admin.component';
 import { DashboardPageComponent } from './components/dashboard-page/dashboard-page.component';
 import { CreatePageComponent } from './components/create-page/create-page.component';
@@ -13,9 +12,10 @@ import { LabelModule } from '../shared/components/label/label.module';
 import { ErrorMessageModule } from '../shared/components/error-mesage/error-message.module';
 import { ButtonModule } from '../shared/components/button/button.module';
 import { QuillEditorComponent } from 'ngx-quill';
+import { SearchPipe } from './components/dashboard-page/pipes/search.pipe';
 
 @NgModule({
-  declarations: [CreatePageComponent],
+  declarations: [CreatePageComponent, SearchPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -49,7 +49,7 @@ import { QuillEditorComponent } from 'ngx-quill';
     ButtonModule,
     QuillEditorComponent,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, SearchPipe],
   providers: [AuthorisationService, AuthorisationGuard],
 })
 export class AdminModule {}
