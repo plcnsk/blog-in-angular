@@ -51,7 +51,9 @@ export class CreatePageComponent extends FormExtension<CreatePageKey> implements
 
     this.postsService.create$(post).subscribe(() => {
       this.form?.reset();
-      this.alert.success('post has been created');
+      this.alert.show('post has been created', 'success');
+
+      this.isLoading = false;
     });
   }
 

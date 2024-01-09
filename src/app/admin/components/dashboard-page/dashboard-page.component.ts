@@ -26,7 +26,7 @@ export class DashboardPageComponent implements OnInit {
   remove(idToRemove: string) {
     this.postsService.removePost$(idToRemove).subscribe(() => {
       this.posts = this.posts.filter(post => post.id !== idToRemove);
-      this.alert.danger('Post has been removed');
+      this.alert.show('Post has been removed', 'danger');
     });
   }
 }

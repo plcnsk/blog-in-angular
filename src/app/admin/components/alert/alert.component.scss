@@ -1,6 +1,22 @@
 .alert-wrap {
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  max-width: 200px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.alert {
+  border-radius: 7px;
+}
+
+.success {
+  background-color: #2B8000CC;
+}
+
+.danger {
+  background-color: #DC3535EC;
+}
+
+.alert-text {
+  color: #f4f4f4;
+  padding: 7px 15px;
 }

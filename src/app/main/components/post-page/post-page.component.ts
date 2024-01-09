@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostsService } from '../../../shared/services/posts.service';
-import { delay, Observable, switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Post } from '../../../admin/components/create-page/interfaces/create-page.interface';
 
 @Component({

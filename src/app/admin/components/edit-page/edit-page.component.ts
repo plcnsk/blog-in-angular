@@ -85,7 +85,7 @@ export class EditPageComponent extends FormExtension<CreatePageKey> implements O
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.isSubmitted = false;
-        this.alert.success('Post has been updated');
+        this.alert.show('Post has been updated', 'success');
       });
   }
 }
