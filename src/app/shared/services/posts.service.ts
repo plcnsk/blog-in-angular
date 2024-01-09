@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { delay, map, Observable } from 'rxjs';
 import {
   Post,
   PostPayLoad,
@@ -28,6 +28,10 @@ export class PostsService {
   getAllPosts$(): Observable<Post[]> {
     return this.http.get(`${environment.fbDbUrl}/posts.json`).pipe(
       map((response: { [key: string]: any }) => {
+        if (!response) {
+          return [];
+        }
+
         return Object.keys(response).map(id => ({
           ...response[id],
           id,

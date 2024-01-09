@@ -17,6 +17,7 @@ import { QuillModule } from 'ngx-quill';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { AdminModule } from './admin/admin.module';
 import { LoadingModule } from './shared/components/loading/loading.module';
+import { LetDirective } from '@ngrx/component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LoadingModule } from './shared/components/loading/loading.module';
     QuillModule.forRoot(),
     AdminModule,
     LoadingModule,
+    LetDirective,
   ],
   providers: [
     {

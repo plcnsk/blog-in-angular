@@ -1,6 +1,14 @@
-<div class="posts" *ngIf="posts$ | async as posts; else loading">
-  <app-post *ngFor="let post of posts" [post]="post"></app-post>
-</div>
+<ng-container *ngIf="posts$ | async as posts; else loading" [ngSwitch]="state">
+  <ng-container *ngSwitchCase="dataState.Exist">
+    <div class="posts">
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="dataState.Empty">
+    <p>There is no data</p>
+  </ng-container>
+</ng-container>
 
 <ng-template #loading>
   <app-loading></app-loading>
