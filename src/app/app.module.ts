@@ -16,6 +16,7 @@ import { LabelModule } from './shared/components/label/label.module';
 import { QuillModule } from 'ngx-quill';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { AdminModule } from './admin/admin.module';
+import { LoadingModule } from './shared/components/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AdminModule } from './admin/admin.module';
     LabelModule,
     QuillModule.forRoot(),
     AdminModule,
+    LoadingModule,
   ],
   providers: [
     {

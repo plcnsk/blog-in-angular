@@ -15,6 +15,7 @@ import { QuillEditorComponent } from 'ngx-quill';
 import { SearchPipe } from './components/dashboard-page/pipes/search.pipe';
 import { AlertComponent } from './components/alert/alert.component';
 import { AlertServices } from './components/alert/services/alert.services';
+import { LoadingModule } from '../shared/components/loading/loading.module';
 
 @NgModule({
   declarations: [CreatePageComponent, SearchPipe, EditPageComponent, AlertComponent],
@@ -50,6 +51,7 @@ import { AlertServices } from './components/alert/services/alert.services';
     ]),
     ButtonModule,
     QuillEditorComponent,
+    LoadingModule,
   ],
   exports: [RouterModule, SearchPipe, AlertComponent],
   providers: [AuthorisationService, AuthorisationGuard, AlertServices],
